@@ -28,11 +28,12 @@ namespace WebsiteBlog
 
             builder.Services.AddCors(option => option.AddPolicy("cors1", build =>
             {
-                build.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+                build.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
 
             builder.Services.AddScoped<IUserReposiroty, UserRepository>();
-            builder.Services.AddScoped<ICommonRepository<Blog>, BlogRepository>();
+            builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+            builder.Services.AddScoped<ICategoryRepository,  CategoryRepository>();
             
             var secretKey = builder.Configuration["JWTSettings:SecretKey"];
             var secretKeyByte = Encoding.UTF8.GetBytes(secretKey);

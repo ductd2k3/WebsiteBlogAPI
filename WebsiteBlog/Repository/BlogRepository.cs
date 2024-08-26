@@ -4,7 +4,7 @@ using WebsiteBlog.Models;
 
 namespace WebsiteBlog.Repository
 {
-    public class BlogRepository : ICommonRepository<Blog>
+    public class BlogRepository : IBlogRepository
     {
         private readonly ApplicationDbContext _context;
         public BlogRepository(ApplicationDbContext context)
@@ -25,34 +25,23 @@ namespace WebsiteBlog.Repository
             _context.SaveChanges();
         }
 
-        public void Delete(Blog entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Blog> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public Blog GetById(int id)
         {
             return _context.Blogs.FirstOrDefault(b => b.BlogId == id);
         }
 
-        public Blog GetByName(string name)
+        public IEnumerable<Blog> Paging(string title, int categoryId, int start, int end)
         {
-            throw new NotImplementedException();
+            return _context.Blogs
+                .Where(b => b.Title.Contains(title) && b.CategoryId == categoryId )
+                .OrderByDescending (b => b.BlogId).ToList();
         }
 
-        public Blog GetByTitle(string title)
+        public IEnumerable<Blog> Paging(string title, int categoryId, int userId, int start, int end)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Blog entity)
-        {
-            throw new NotImplementedException();
+            return _context.Blogs
+                .Where(b => b.Title.Contains(title) && b.CategoryId == categoryId && b.UserId == userId )
+                .OrderByDescending(b => b.BlogId).ToList();
         }
     }
 }

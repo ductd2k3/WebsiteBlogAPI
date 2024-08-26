@@ -136,3 +136,4 @@ D:\VisualStudio\WebsiteBlog\WebsiteBlog\obj\Debug\net8.0\refint\WebsiteBlog.dll
 D:\VisualStudio\WebsiteBlog\WebsiteBlog\obj\Debug\net8.0\WebsiteBlog.pdb
 D:\VisualStudio\WebsiteBlog\WebsiteBlog\obj\Debug\net8.0\WebsiteBlog.genruntimeconfig.cache
 D:\VisualStudio\WebsiteBlog\WebsiteBlog\obj\Debug\net8.0\ref\WebsiteBlog.dll
+D:\VisualStudio\WebsiteBlog\WebsiteBlog\obj\Debug\net8.0\WebsiteBlog.sourcelink.json

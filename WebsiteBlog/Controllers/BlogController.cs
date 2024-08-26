@@ -12,8 +12,8 @@ namespace WebsiteBlog.Controllers
     [ApiController]
     public class BlogController : ControllerBase
     {
-        private readonly ICommonRepository<Blog> _blogRepository;
-        public BlogController(ICommonRepository<Blog> blogRepository)
+        private readonly IBlogRepository _blogRepository;
+        public BlogController(IBlogRepository blogRepository)
         {
             _blogRepository = blogRepository;
         }
@@ -90,6 +90,8 @@ namespace WebsiteBlog.Controllers
             }
             return Ok(new Response { Success = "true", Data = blog});
         }
+
         
+
     }
 }
