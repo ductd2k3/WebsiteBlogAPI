@@ -1,0 +1,6 @@
+@WebsiteBlog_HostAddress = http://localhost:5184
+
+GET {{WebsiteBlog_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
